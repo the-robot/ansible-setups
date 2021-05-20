@@ -19,6 +19,8 @@
         - alacritty
         - firefox
         - qbittorrent
+        - openvpn
+        - vlc
 
   - name: install developer tools
     package:
@@ -32,9 +34,6 @@
         - minikube
         - terraform
   
-  # - name: install spotify
-  #   local_action: command sh scripts/install-spotify.sh
-  
   # Yay package manager for linux
   - name: install yay package manager
     local_action: command sh scripts/install-yay.sh
@@ -44,16 +43,38 @@
     become: yes
     become_user: robot
     shell: |
-      if ! command -v "spotify" &> /dev/null
-      then
-        yay -a -Sy --noconfirm --cleanafter spotify
-      fi
+      #######################################
+      # Install package with yay if it does not exists in a system.
+      # Arguments:
+      #   Command name.
+      #   Package name.
+      #######################################
+      function yay_if_not_exists() {
+        if ! command -v "$1" &> /dev/null
+        then
+            yay -a -Sy --noconfirm --cleanafter $2
+        fi
+      }
 
-      if ! command -v "postman" &> /dev/null
-      then
-        yay -a -Sy --noconfirm --cleanafter postman-bin
-      fi
+      # install spotify
+      yay_if_not_exists "spotify" "spotify"
 
+      # install postman
+      yay_if_not_exists "postman" "postman-bin"
+
+      # install slack
+      yay_if_not_exists "slack" "slack-desktop"
+
+      # install discord
+      yay_if_not_exists "discord" "discord_arch_electron"
+
+      # install telegram
+      yay_if_not_exists "telegram" "telegram-desktop-bin"
+
+      # install bitwarden
+      yay_if_not_exists "bitwarden" "bitwarden-bin"
+
+      # clean unneeded dependencies
       yay --clean --noconfirm
 
   # Set wallpaper
