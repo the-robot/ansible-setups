@@ -91,11 +91,11 @@
   #       curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
   #     fi
   
-    # Install spacevim
-    - name: install spacevim
-      become: yes
-      become_user: robot
-      shell: curl -sLf https://spacevim.org/install.sh | bash
+  # Install spacevim
+  - name: install spacevim
+    become: yes
+    become_user: robot
+    shell: curl -sLf https://spacevim.org/install.sh | bash
 
   # Setup zshrc and other configs
   - name: setup zshrc and other configs
