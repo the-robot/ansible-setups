@@ -1,10 +1,11 @@
 function install_if_not_exists() {
+    echo "installing $1"
+    
     if ! command -v "$1" &> /dev/null
     then
-        echo "installing $1"
         pacman -S --noconfirm $1
     else
-        echo "$1 is already installed"
+        echo "$1 is already installed at $(which $1)"
     fi
 }
 
