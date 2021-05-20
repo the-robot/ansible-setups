@@ -25,6 +25,9 @@
   - name: install developer tools
     package:
       name:
+        - python-pip
+        - python-setuptools
+        - python-virtualenv
         - nmap
         - vscode
         - filezilla
@@ -52,7 +55,7 @@
       function yay_if_not_exists() {
         if ! command -v "$1" &> /dev/null
         then
-            yay -a -Sy --noconfirm --cleanafter $2
+          yay -a -Sy --noconfirm --cleanafter $2
         fi
       }
 
@@ -76,6 +79,16 @@
 
       # clean unneeded dependencies
       yay --clean --noconfirm
+
+  # Install rust programming
+  - name: install rust programming language
+    become: yes
+    become_user: robot
+    shell: |
+      if ! command -v cargo &> /dev/null
+      then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      fi
 
   # Set wallpaper
   # - name: copy wallpaper file
