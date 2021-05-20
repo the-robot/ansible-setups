@@ -146,7 +146,7 @@
         wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P $HOME_DIR/.SpaceVim/colors
 
         # override config
-        wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim $HOME_DIR/.SpaceVim
+        wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim -P $HOME_DIR/.SpaceVim
       fi
 
       # install spacevim config
