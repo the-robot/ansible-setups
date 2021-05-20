@@ -11,3 +11,9 @@ curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/ins
 ## 2. Contribution
 
 Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html) for formatting the bash script.
+
+## 3. To Fix
+
+Things I have not managed to install yet
+
+- Postman
