@@ -20,7 +20,7 @@
         - qbittorrent
   
   - name: install spotify
-    local_action: command sh scripts/hello.sh
+    local_action: command sh scripts/helslo.sh
   
   - name: install developer tools
     package:
