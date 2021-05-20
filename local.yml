@@ -49,12 +49,12 @@
     ansible.builtin.shell: |
       if ! command -v "spotify" &> /dev/null
       then
-          yay -a -Sy --noconfirm --cleanafter spotify
+        yay -a -Sy --noconfirm --cleanafter spotify
       fi
 
       if ! command -v "postman" &> /dev/null
       then
-          yay -a -Sy --noconfirm --cleanafter postman-bin
+        yay -a -Sy --noconfirm --cleanafter postman-bin
       fi
 
       yay --clean --noconfirm
