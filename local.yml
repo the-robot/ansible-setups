@@ -98,6 +98,16 @@
   #   shell: |
   #     curl -sLf https://spacevim.org/install.sh | bash
 
+  # Install fonts
+  - name: install fonts
+    shell: |
+      if [ ! -d "/usr/local/share/fonts" ]
+      then
+        mkdir /usr/local/share/fonts
+      fi
+
+      cp -R fonts/* /usr/local/share/fonts
+
   # Setup zshrc and other configs
   - name: setup zshrc, oh-my-zsh and other configs
     become: yes
