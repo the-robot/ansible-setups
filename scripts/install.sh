@@ -36,4 +36,4 @@ install_if_not_exists "git"
 install_if_not_exists "ansible"
 
 # clone ansible playbook and install
-setup_ansible()
+setup_ansible
