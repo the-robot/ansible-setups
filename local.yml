@@ -92,11 +92,11 @@
   #     fi
   
   # Install spacevim
-  - name: install spacevim
-    become: yes
-    become_user: robot
-    shell: |
-      curl -sLf https://spacevim.org/install.sh | bash
+  # - name: install spacevim
+  #   become: yes
+  #   become_user: robot
+  #   shell: |
+  #     curl -sLf https://spacevim.org/install.sh | bash
 
   # Setup zshrc and other configs
   - name: setup zshrc and other configs
@@ -106,12 +106,6 @@
       # create config folder if not exists
       if [ ! -d "~/.config" ]
         mkdir ~/.config
-      fi
-
-      # create alacritty folder and setup config if not exists
-      if [ ! -d "~/.config/alacritty" ]
-        mkdir ~/.config/alacritty
-        wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
       fi
 
   # Set wallpaper
