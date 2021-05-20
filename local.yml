@@ -38,6 +38,13 @@
         - minikube
         - terraform
   
+  # Add user to docker
+  - name: add user to docker
+    shell: |
+      NORMAL_USER=robot
+      groupadd docker
+      usermod -aG docker $NORMAL_USER
+
   # Yay package manager for linux
   - name: install yay package manager
     local_action: command sh scripts/install-yay.sh
