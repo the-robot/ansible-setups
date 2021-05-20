@@ -103,12 +103,51 @@
     become: yes
     become_user: robot
     shell: |
-      HOME=$(pwd ~)
-
       # create config folder if not exists
-      if [ ! -d "$HOME/.config" ]
+      if [ ! -d "~/.config" ]
+      then
         mkdir $HOME/.config
       fi
+
+      # create alacritty folder and setup config if not exists
+      if [ ! -d "~/.config/alacritty" ]
+      then
+        mkdir ~/.config/alacritty
+        wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
+      fi
+
+      # install tmux config
+      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~
+
+      # install Vundle vim plugin manager
+      if [! -d "~/.vim/bundle/Vundle.vim" ]
+      then
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+      fi
+
+      # install Ctrlp fzf vim plugin
+      if [ ! -d "~/.vim/bundle/ctrlp.vim" ]
+      then
+        git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+      fi
+
+      # install neovim config
+      if [ -d "~/.SpaceVim" ]
+      then
+        # install color
+        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P ~/.SpaceVim/colors
+
+        # override config
+        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim ~/.SpaceVim
+      fi
+
+      # install spacevim config
+      if [ ! -d "~/.SpaceVim.d" ]
+      then
+        mkdir ~/.SpaceVim.d
+        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
+      fi
+
 
   # Set wallpaper
   # - name: copy wallpaper file
