@@ -114,34 +114,6 @@
         wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
       fi
 
-      # install tmux config
-      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~
-
-      # install Vundle vim plugin manager
-      if [! -d "~/.vim/bundle/Vundle.vim" ]
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-      fi
-
-      # install Ctrlp fzf vim plugin
-      if [ ! -d "~/.vim/bundle/ctrlp.vim" ]
-        git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-      fi
-
-      # install neovim config
-      if [ -d "~/.SpaceVim" ]
-        # install color
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P ~/.SpaceVim/colors
-
-        # override config
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim ~/.SpaceVim
-      fi
-
-      # install spacevim config
-      if [ ! -d "~/.SpaceVim.d" ]
-        mkdir ~/.SpaceVim.d
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
-      fi
-
   # Set wallpaper
   # - name: copy wallpaper file
   #   copy:
