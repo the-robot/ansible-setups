@@ -18,10 +18,7 @@
         - alacritty
         - firefox
         - qbittorrent
-  
-  - name: install spotify
-    local_action: command sh scripts/helslo.sh
-  
+
   - name: install developer tools
     package:
       name:
@@ -33,6 +30,14 @@
         - kubectl
         - minikube
         - terraform
+  
+  # - name: install spotify
+  #   local_action: command sh scripts/install-spotify.sh
+  
+
+  # Yay package manager for linux
+  - name: install yay
+    local_action: command sh scripts/install-yay.sh
 
   # Set wallpaper
   # - name: copy wallpaper file
