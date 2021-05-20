@@ -9,6 +9,7 @@
   - name: install essential tools
     package:
       name:
+        - wget
         - neofetch
         - htop
         - tmux

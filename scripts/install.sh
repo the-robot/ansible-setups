@@ -10,7 +10,7 @@ readonly REPOSITORY_DIR="ansible-arch"
 #   Package name.
 #######################################
 function install_if_not_exists() {
-    echo "installing $1"
+    echo "Installing $1"
     
     if ! command -v "$1" &> /dev/null
     then

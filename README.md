@@ -16,4 +16,6 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 
 Things I have not managed to install yet
 
-- Postman
+- Spotify
+- JetBrain IDE (CLion, GoLand, Data Grip)
+- Lens (K8)
