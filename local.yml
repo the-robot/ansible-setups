@@ -117,7 +117,7 @@
       fi
 
       # install tmux config
-      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~
+      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmux.conf -P ~
 
       # install Vundle vim plugin manager
       if [! -d "~/.vim/bundle/Vundle.vim" ]
