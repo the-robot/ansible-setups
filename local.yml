@@ -99,10 +99,13 @@
   #     curl -sLf https://spacevim.org/install.sh | bash
 
   # Setup zshrc and other configs
-  - name: setup zshrc and other configs
+  - name: setup zshrc, oh-my-zsh and other configs
     become: yes
     become_user: robot
     shell: |
+      # setup oh-my-zsh
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
       # create config folder if not exists
       if [ ! -d "~/.config" ]
       then
@@ -147,7 +150,6 @@
         mkdir ~/.SpaceVim.d
         wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
       fi
-
 
   # Set wallpaper
   # - name: copy wallpaper file
