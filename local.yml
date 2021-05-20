@@ -43,60 +43,64 @@
     local_action: command sh scripts/install-yay.sh
 
   # Install aur packages with yay
-  # - name: install aur packages with yay
-  #   become: yes
-  #   become_user: robot
-  #   shell: |
-  #     #######################################
-  #     # Install package with yay if it does not exists in a system.
-  #     # Arguments:
-  #     #   Command name.
-  #     #   Package name.
-  #     #######################################
-  #     function yay_if_not_exists() {
-  #       if ! command -v "$1" &> /dev/null
-  #       then
-  #         yay -a -Sy --noconfirm --cleanafter $2
-  #       fi
-  #     }
+  - name: install aur packages with yay
+    become: yes
+    become_user: robot
+    shell: |
+      #######################################
+      # Install package with yay if it does not exists in a system.
+      # Arguments:
+      #   Command name.
+      #   Package name.
+      #######################################
+      function yay_if_not_exists() {
+        if ! command -v "$1" &> /dev/null
+        then
+          yay -a -Sy --noconfirm --cleanafter $2
+        fi
+      }
 
-  #     # install spotify
-  #     yay_if_not_exists "spotify" "spotify"
+      # install spotify
+      yay_if_not_exists "spotify" "spotify"
 
-  #     # install postman
-  #     yay_if_not_exists "postman" "postman-bin"
+      # install postman
+      yay_if_not_exists "postman" "postman-bin"
 
-  #     # install slack
-  #     yay_if_not_exists "slack" "slack-desktop"
+      # install slack
+      yay_if_not_exists "slack" "slack-desktop"
 
-  #     # install discord
-  #     yay_if_not_exists "discord" "discord_arch_electron"
+      # install discord
+      yay_if_not_exists "discord" "discord_arch_electron"
 
-  #     # install telegram
-  #     yay_if_not_exists "telegram" "telegram-desktop-bin"
+      # install telegram
+      yay_if_not_exists "telegram" "telegram-desktop-bin"
 
-  #     # install bitwarden
-  #     yay_if_not_exists "bitwarden" "bitwarden-bin"
+      # install bitwarden
+      yay_if_not_exists "bitwarden" "bitwarden-bin"
 
-  #     # clean unneeded dependencies
-  #     yay --clean --noconfirm
+      # clean unneeded dependencies
+      yay --clean --noconfirm
 
   # Install rust programming
-  # - name: install rust programming language
-  #   become: yes
-  #   become_user: robot
-  #   shell: |
-  #     if ! command -v cargo &> /dev/null
-  #     then
-  #       curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
-  #     fi
+  - name: install rust programming language
+    become: yes
+    become_user: robot
+    shell: |
+      if ! command -v cargo &> /dev/null
+      then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+      fi
   
   # Install spacevim
-  # - name: install spacevim
-  #   become: yes
-  #   become_user: robot
-  #   shell: |
-  #     curl -sLf https://spacevim.org/install.sh | bash
+  - name: install spacevim
+    become: yes
+    become_user: robot
+    shell: |
+      HOME_DIR=$(pwd ~)
+      if [ ! -d "$HOME_DIR/.SpaceVim.d" ]
+      then
+        curl -sLf https://spacevim.org/install.sh | bash
+      fi
 
   # Install fonts
   - name: install fonts
