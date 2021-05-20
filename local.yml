@@ -103,9 +103,11 @@
     become: yes
     become_user: robot
     shell: |
+      HOME=$(pwd ~)
+
       # create config folder if not exists
-      if [ ! -d "~/.config" ]
-        mkdir ~/.config
+      if [ ! -d "$HOME/.config" ]
+        mkdir $HOME/.config
       fi
 
   # Set wallpaper
