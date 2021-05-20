@@ -25,6 +25,7 @@
   - name: install developer tools
     package:
       name:
+        - go
         - python-pip
         - python-setuptools
         - python-virtualenv
@@ -89,6 +90,17 @@
       then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
       fi
+    
+  # TODO: Setup zshrc
+
+  # Install go tools
+  - name: install go tools
+    become: yes
+    become_user: robot
+    shell: |
+      go get golang.org/x/tools/cmd/goimports
+      go get -u github.com/kisielk/errcheck
+      go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow
 
   # Set wallpaper
   # - name: copy wallpaper file
