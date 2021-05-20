@@ -5,6 +5,7 @@
   become: true
 
   tasks:
+  # Install packages
   - name: install essential tools
     package:
       name:
@@ -21,6 +22,7 @@
     package:
       name:
         - neofetch
+        - spotify
   
   - name: install developer tools
     package:
@@ -33,3 +35,21 @@
         - kubectl
         - minikube
         - terraform
+
+  # Set wallpaper
+  # - name: copy wallpaper file
+  #   copy:
+  #     src: files/wallpaper.png
+  #     dest: /usr/share/backgrounds/wallpaper.png
+  #     owner: root
+  #     group: root
+  
+  # - name: set wallpaper
+  #   dconf:
+  #     key: "/org/gnome/desktop/background/picture-uri"
+  #     value: "'file:///usr/share/backgrounds/wallpaper.png'"
+  
+  # - name: set wallpaper
+  #   dconf:
+  #     key: "/org/gnome/desktop/background/picture-options"
+  #     value: "'zoom'"
