@@ -26,7 +26,11 @@ function install_if_not_exists() {
 #   None
 #######################################
 function setup_ansible() {
+    # clone ansible playbook repository
     git clone $REPOSITORY_URL /tmp/$REPOSITORY_DIR
+
+    # delete ansible playbook repository
+    rm -rf /tmp/$REPOSITORY_DIR
 }
 
 # install git if not exists
