@@ -39,6 +39,11 @@
   - name: install yay package manager
     local_action: command sh scripts/install-yay.sh
 
+  # Debug
+  - name: debug
+    debug:
+      msg: "'{{ lookup('env', 'NON_ROOT_USER') }}' is the non root user."
+
   # Install spotify
   # - name: install spotify
   #   local_action: command sh scripts/install-spotify.sh
