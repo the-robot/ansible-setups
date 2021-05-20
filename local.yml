@@ -39,26 +39,6 @@
   - name: install yay package manager
     local_action: command sh scripts/install-yay.sh
 
-  # Install packages with yay
-  # - Spotify
-  # - Postman
-  - name: install packages with yay
-    local_action: command sh scripts/install-postman.sh
-    become: yes
-    become_user: robot
-    shell: |
-      if ! command -v "spotify" &> /dev/null
-      then
-        yay -a -Sy --noconfirm --cleanafter spotify
-      fi
-
-      if ! command -v "postman" &> /dev/null
-      then
-        yay -a -Sy --noconfirm --cleanafter postman-bin
-      fi
-
-      yay --clean --noconfirm
-
   # Set wallpaper
   # - name: copy wallpaper file
   #   copy:
