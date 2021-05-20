@@ -46,7 +46,7 @@
     local_action: command sh scripts/install-postman.sh
     become: yes
     become_user: robot
-    ansible.builtin.shell: |
+    shell: |
       if ! command -v "spotify" &> /dev/null
       then
         yay -a -Sy --noconfirm --cleanafter spotify
