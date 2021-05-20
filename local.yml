@@ -103,8 +103,11 @@
     become: yes
     become_user: robot
     shell: |
-      # setup oh-my-zsh
-      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      # install oh-my-zsh if not exists
+      if [ ! -d "~/.oh-my-zsh" ]
+      then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      fi
 
       # create config folder if not exists
       if [ ! -d "~/.config" ]
