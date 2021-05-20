@@ -95,7 +95,8 @@
   - name: install spacevim
     become: yes
     become_user: robot
-    shell: curl -sLf https://spacevim.org/install.sh | bash
+    shell: |
+      curl -sLf https://spacevim.org/install.sh | bash
 
   # Setup zshrc and other configs
   - name: setup zshrc and other configs
