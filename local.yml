@@ -116,8 +116,8 @@
       if [ ! -d "~/.config/alacritty" ]
       then
         mkdir ~/.config/alacritty
-        wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
       fi
+      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
 
       # install tmux config
       wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmux.conf -P ~
@@ -148,8 +148,8 @@
       if [ ! -d "~/.SpaceVim.d" ]
       then
         mkdir ~/.SpaceVim.d
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
       fi
+      wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
 
   # Set wallpaper
   # - name: copy wallpaper file
