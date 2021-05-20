@@ -5,6 +5,32 @@
   become: true
 
   tasks:
-  - name: install htop
+  - name: install essential tools
     package:
-      name: htop
+      name:
+        - htop
+        - tmux
+        - neovim
+        - zsh
+        - fzf
+        - alacritty
+        - firefox
+        - qbittorrent
+  
+  - name: install fun tools
+    package:
+      name:
+        - neofetch
+  
+  - name: install developer tools
+    package:
+      name:
+        - nmap
+        - vscode
+        - postman
+        - filezilla
+        - aws-cli
+        - docker
+        - kubectl
+        - minikube
+        - terraform
