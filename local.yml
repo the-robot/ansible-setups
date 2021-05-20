@@ -36,7 +36,7 @@
 
   # Install Postman with ansible
   - name: Inspect postman file
-    stat: path=~/bin/Postman/Postman
+    stat: path=/usr/local/bin
     register: postman_file
 
   - name: Install postman
@@ -44,4 +44,4 @@
     unarchive:
       remote_src: yes
       src: https://dl.pstmn.io/download/latest/linux64
-      dest: ~/bin
+      dest: /usr/local/bin
