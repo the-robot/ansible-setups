@@ -144,10 +144,14 @@
       then
         # install color
         wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P $HOME_DIR/.SpaceVim/colors
-
-        # override config
-        wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim -P $HOME_DIR/.SpaceVim
       fi
+
+      # install spacevim config
+      if [ ! -d "$HOME_DIR/.SpaceVim.d" ]
+      then
+        mkdir $HOME_DIR/.SpaceVim.d
+      fi
+      wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P $HOME_DIR/.SpaceVim.d
 
   # Set wallpaper
   # - name: copy wallpaper file
