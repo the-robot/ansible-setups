@@ -27,10 +27,21 @@
       name:
         - nmap
         - vscode
-        - postman
         - filezilla
         - aws-cli
         - docker
         - kubectl
         - minikube
         - terraform
+
+  # Install Postman with ansible
+  - name: Inspect postman file
+    stat: path=~/bin/Postman/Postman
+    register: postman_file
+
+  - name: Install postman
+    when: not postman_file.stat.exists
+    unarchive:
+      remote_src: yes
+      src: https://dl.pstmn.io/download/latest/linux64
+      dest: ~/bin
