@@ -117,10 +117,10 @@
       then
         mkdir ~/.config/alacritty
       fi
-      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
+      wget -O https://raw.githubusercontent.com/the-robot/dots/master/terminals/alacritty/alacritty.yml -P ~/.config/alacritty
 
       # install tmux config
-      wget https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmux.conf -P ~
+      wget -O https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmux.conf -P ~
 
       # install Vundle vim plugin manager
       if [! -d "~/.vim/bundle/Vundle.vim" ]
@@ -138,10 +138,10 @@
       if [ -d "~/.SpaceVim" ]
       then
         # install color
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P ~/.SpaceVim/colors
+        wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/colors/monokai_pro.vim -P ~/.SpaceVim/colors
 
         # override config
-        wget https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim ~/.SpaceVim
+        wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/nvim/init.vim ~/.SpaceVim
       fi
 
       # install spacevim config
@@ -149,7 +149,7 @@
       then
         mkdir ~/.SpaceVim.d
       fi
-      wget https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
+      wget -O https://raw.githubusercontent.com/the-robot/dots/master/vi/spacevim/init.toml -P ~/.SpaceVim.d
 
   # Set wallpaper
   # - name: copy wallpaper file
