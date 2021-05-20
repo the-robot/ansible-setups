@@ -103,7 +103,7 @@
     become: yes
     become_user: robot
     shell: |
-      HOME_DIR=$(pwd ~)
+      HOME_DIR=/home/robot
 
       # install oh-my-zsh if not exists
       if [ ! -d "$HOME_DIR/.oh-my-zsh" ]
