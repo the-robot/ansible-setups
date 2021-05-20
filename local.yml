@@ -22,7 +22,7 @@
     package:
       name:
         - neofetch
-        - spotify
+        # - spotify
   
   - name: install developer tools
     package:
