@@ -9,6 +9,7 @@
   - name: install essential tools
     package:
       name:
+        - neofetch
         - htop
         - tmux
         - neovim
@@ -18,11 +19,8 @@
         - firefox
         - qbittorrent
   
-  - name: install fun tools
-    package:
-      name:
-        - neofetch
-        # - spotify
+  - name: install spotify
+    local_action: command sh scripts/hello.sh
   
   - name: install developer tools
     package:
