@@ -43,13 +43,13 @@
   - name: install spotify
     local_action: command sh scripts/install-spotify.sh
     become: yes
-    become_user: {{ lookup('env', 'NON_ROOT_USER') }}
+    become_user: "{{ lookup('env', 'NON_ROOT_USER') }}"
 
   # Install postman REST API client
   - name: install postman rest api client
     local_action: command sh scripts/install-postman.sh
     become: yes
-    become_user: {{ lookup('env', 'NON_ROOT_USER') }}
+    become_user: "{{ lookup('env', 'NON_ROOT_USER') }}"
 
   # Set wallpaper
   # - name: copy wallpaper file
