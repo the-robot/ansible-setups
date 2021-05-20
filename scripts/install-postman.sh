@@ -2,5 +2,5 @@
 
 if ! command -v "postman" &> /dev/null
 then
-    yay -Sy --noconfirm postman-bin
+    yay -a -Sy --noconfirm postman-bin
 fi

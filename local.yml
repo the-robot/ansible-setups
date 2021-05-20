@@ -39,6 +39,10 @@
   - name: install yay package manager
     local_action: command sh scripts/install-yay.sh
 
+  # Install spotify
+  - name: install spotify
+    local_action: command sh scripts/install-spotify.sh
+
   # Install postman REST API client
   - name: install postman rest api client
     local_action: command sh scripts/install-postman.sh
