@@ -1,1 +1,1 @@
-pacman -Sy ansible
+pacman -S --noconfirm ansible
