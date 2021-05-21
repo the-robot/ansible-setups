@@ -3,6 +3,7 @@
 # Constants
 readonly REPOSITORY_URL="https://github.com/the-robot/ansible-arch.git"
 readonly REPOSITORY_DIR="ansible-arch"
+export readonly NORMAL_USER=$1
 
 #######################################
 # Install package if it does not exists in a system.

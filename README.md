@@ -5,7 +5,7 @@
 Run the command below to automatically setup the arch linux with ansible playbook.
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/install.sh | sudo bash
+curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/install.sh | sudo bash -s -- <normal_username>
 ```
 
 ## 2. Contribution
