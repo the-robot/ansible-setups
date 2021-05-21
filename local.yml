@@ -66,7 +66,7 @@
   # Install aur packages with yay
   - name: install aur packages with yay
     become: yes
-    become_user: {{ normal_user }}
+    become_user: "{{ normal_user }}"
     shell: |
       #######################################
       # Install package with yay if it does not exists in a system.
@@ -105,7 +105,7 @@
   # Install rust programming
   - name: install rust programming language
     become: yes
-    become_user: {{ normal_user }}
+    become_user: "{{ normal_user }}"
     shell: |
       if ! command -v cargo &> /dev/null
       then
@@ -115,7 +115,7 @@
   # Install spacevim
   - name: install spacevim
     become: yes
-    become_user: {{ normal_user }}
+    become_user: "{{ normal_user }}"
     shell: |
       if [ ! -d "$(pwd ~)/.SpaceVim.d" ]
       then
@@ -135,7 +135,7 @@
   # Setup zshrc and other configs
   - name: setup zshrc, oh-my-zsh and other configs
     become: yes
-    become_user: {{ normal_user }}
+    become_user: "{{ normal_user }}"
     shell: |
       HOME_DIR=$(pwd ~)
       DOTS_REPO=https://raw.githubusercontent.com/the-robot/dots/master
