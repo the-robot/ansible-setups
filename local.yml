@@ -61,9 +61,9 @@
 
       # add user to docker group if not
       if getent group docker | grep -q "\b{{ normal_user }}\b"; then
-        echo "$NORMAL_USER is already in docker group"
+        echo "{{ normal_user }} is already in docker group"
       else
-        usermod -aG docker $NORMAL_USER
+        usermod -aG docker {{ normal_user }}
       fi
 
   # Yay package manager for linux
