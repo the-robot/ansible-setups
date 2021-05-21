@@ -2,7 +2,7 @@
 
 ## 1. Installation
 
-**NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use. For example, changing some paths and username from `local.yml`.
+**NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
 
 Run the command below to automatically setup the arch linux with ansible playbook.
 
@@ -18,5 +18,6 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 
 Things I have not managed to install yet
 
+- Add Zsh config
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
