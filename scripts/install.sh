@@ -28,7 +28,7 @@ function install_if_not_exists() {
 #######################################
 function setup_ansible() {
     # pull ansible playbook
-    ansible-pull -U $REPOSITORY_URL
+    ansible-pull -U $REPOSITORY_URL arch.yml
 }
 
 # install git if not exists
