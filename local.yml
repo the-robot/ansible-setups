@@ -8,6 +8,10 @@
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
 
   tasks:
+  # Debug
+  - debug:
+    msg: "Non root username is {{ normal_user }}."
+
   # Install packages
   - name: install essential tools
     package:
