@@ -22,6 +22,5 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 
 Things I have not managed to install yet
 
-- Add Zsh config
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
