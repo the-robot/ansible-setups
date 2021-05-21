@@ -114,9 +114,9 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v go &> /dev/null; then
-        wget {{ golang_download_url }} -O {{ normal_user_home }}/go.tar.gz
-        tar -xf {{ normal_user_home }}/go.tar.gz -C {{ normal_user_home }}
-        rm {{ normal_user_home }}/go.tar.gz
+        wget {{ golang_download_url }} -O /tmp/go.tar.gz
+        tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
+        rm /tmp/go.tar.gz
       fi
 
   # Install rust programming
