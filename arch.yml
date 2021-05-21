@@ -31,9 +31,11 @@
         - fzf
         - alacritty
         - firefox
+        - chromium
         - qbittorrent
         - openvpn
         - vlc
+        - libreoffice-fresh
 
   - name: install developer tools
     package:
