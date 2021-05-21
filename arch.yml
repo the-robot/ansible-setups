@@ -187,7 +187,7 @@
       wget $DOTS_REPO/terminals/tmux/.tmux.conf -O {{ normal_user_home }}/.tmux.conf
 
       # install Vundle vim plugin manager
-      if [! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
+      if [ ! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
       fi
 
