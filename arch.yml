@@ -191,6 +191,11 @@
       # install tmux config
       wget $DOTS_REPO/terminals/tmux/.tmux.conf -O {{ normal_user_home }}/.tmux.conf
 
+      # install tmux cpu plugin
+      if [ ! -d "{{ normal_user_home }}/.tmux/plugins/tmux-cpu" ]; then
+        git clone https://github.com/tmux-plugins/tmux-cpu.git {{ normal_user_home }}/.tmux/plugins/tmux-cpu
+      fi
+
       # install Vundle vim plugin manager
       if [ ! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
