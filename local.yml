@@ -146,7 +146,7 @@
 
       cp -R fonts/* /usr/local/share/fonts
 
-  # Setup zshrc and other configs
+  # Setup zsh and misc configs and plugins
   - name: setup zshrc, oh-my-zsh and other configs
     become: yes
     become_user: "{{ normal_user }}"
@@ -155,9 +155,6 @@
 
       # install z.sh
       wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O {{ normal_user_home }}/.z.sh
-
-      # override .zshrc
-      wget $DOTS_REPO/terminals/.zshrc -O {{ normal_user_home }}/.zshrc
 
       # install oh-my-zsh if not exists
       if [ ! -d "{{ normal_user_home }}/.oh-my-zsh" ]; then
@@ -168,6 +165,9 @@
       if [ ! -d "{{ normal_user_home }}/.zsh/zsh-syntax-highlighting" ]; then
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
       fi
+
+      # override .zshrc
+      wget $DOTS_REPO/terminals/.zshrc -O {{ normal_user_home }}/.zshrc
 
       # create config folder if not exists
       if [ ! -d "{{ normal_user_home }}/.config" ]; then
