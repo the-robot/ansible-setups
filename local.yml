@@ -154,9 +154,7 @@
       DOTS_REPO=https://raw.githubusercontent.com/the-robot/dots/master
 
       # install z.sh
-      if [ ! -f "$HOME_DIR/.z.sh" ]; then
-        wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O $HOME_DIR/.z.sh
-      fi
+      wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O $HOME_DIR/.z.sh
 
       # override .zshrc
       wget $DOTS_REPO/terminals/terminals/.zshrc -O $HOME_DIR/.zshrc
