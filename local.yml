@@ -9,8 +9,9 @@
 
   tasks:
   # Debug
-  - debug:
-    msg: "Non root username is {{ normal_user }}."
+  - name: print variables for debug
+    debug:
+      msg: "Non root username is {{ normal_user }}."
 
   # Install packages
   - name: install essential tools
