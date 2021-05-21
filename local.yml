@@ -132,7 +132,7 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      if [ ! -d "$(pwd ~)/.SpaceVim.d" ]; then
+      if [ ! -d "/home/{{ normal_user }}/.SpaceVim.d" ]; then
         curl -sLf https://spacevim.org/install.sh | bash
       fi
 
@@ -150,14 +150,14 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      HOME_DIR=$(pwd ~)
+      HOME_DIR=/home/{{ normal_user }}
       DOTS_REPO=https://raw.githubusercontent.com/the-robot/dots/master
 
       # install z.sh
       wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O $HOME_DIR/.z.sh
 
       # override .zshrc
-      wget $DOTS_REPO/terminals/terminals/.zshrc -O $HOME_DIR/.zshrc
+      wget $DOTS_REPO/terminals/.zshrc -O $HOME_DIR/.zshrc
 
       # install oh-my-zsh if not exists
       if [ ! -d "$HOME_DIR/.oh-my-zsh" ]; then
