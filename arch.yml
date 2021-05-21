@@ -66,6 +66,8 @@
       else
         usermod -aG docker {{ normal_user }}
       fi
+      
+      newgrp docker
 
   # Yay package manager for linux
   - name: install yay package manager
