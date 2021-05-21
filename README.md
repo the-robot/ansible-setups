@@ -1,7 +1,7 @@
 # Ansible setup for Arch based distros
 
 <p align="center">
-  <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=300 />
+  <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
 </p>
   
 ## 1. Installation
