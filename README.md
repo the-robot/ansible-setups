@@ -18,9 +18,7 @@ curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/set
 
 Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html) for formatting the bash script.
 
-## 3. To Add Later
-
-Things I have not managed to install yet
+## 3. Tools not install automatically
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
