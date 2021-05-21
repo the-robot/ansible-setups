@@ -6,6 +6,7 @@
 
   vars:
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
+    normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
     golang_download_url: https://golang.org/dl/go1.16.4.linux-amd64.tar.gz
 
   tasks:
@@ -113,9 +114,9 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v go &> /dev/null; then
-        wget {{ golang_download_url }} -O ~/go.tar.gz
-        tar -xf go.tar.gz
-        rm go.tar.gz
+        wget {{ golang_download_url }} -O {{ normal_user_home }}/go.tar.gz
+        tar -xf {{ normal_user_home }}/go.tar.gz -C {{ normal_user_home }}
+        rm {{ normal_user_home }}/go.tar.gz
       fi
 
   # Install rust programming
@@ -150,63 +151,62 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      HOME_DIR=/home/{{ normal_user }}
       DOTS_REPO=https://raw.githubusercontent.com/the-robot/dots/master
 
       # install z.sh
-      wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O $HOME_DIR/.z.sh
+      wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O {{ normal_user_home }}/.z.sh
 
       # override .zshrc
-      wget $DOTS_REPO/terminals/.zshrc -O $HOME_DIR/.zshrc
+      wget $DOTS_REPO/terminals/.zshrc -O {{ normal_user_home }}/.zshrc
 
       # install oh-my-zsh if not exists
-      if [ ! -d "$HOME_DIR/.oh-my-zsh" ]; then
+      if [ ! -d "{{ normal_user_home }}/.oh-my-zsh" ]; then
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       fi
 
       # install zsh syntax highlight
-      if [ ! -d "$HOME_DIR/.zsh/zsh-syntax-highlighting" ]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME_DIR/.zsh/zsh-syntax-highlighting
+      if [ ! -d "{{ normal_user_home }}/.zsh/zsh-syntax-highlighting" ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
       fi
 
       # create config folder if not exists
-      if [ ! -d "$HOME_DIR/.config" ]; then
-        mkdir $HOME_DIR/.config
+      if [ ! -d "{{ normal_user_home }}/.config" ]; then
+        mkdir {{ normal_user_home }}/.config
       fi
 
       # create alacritty folder and setup config if not exists
-      if [ ! -d "$HOME_DIR/.config/alacritty" ]; then
-        mkdir $HOME_DIR/.config/alacritty
+      if [ ! -d "{{ normal_user_home }}/.config/alacritty" ]; then
+        mkdir {{ normal_user_home }}/.config/alacritty
       fi
-      wget $DOTS_REPO/terminals/alacritty/alacritty.yml -O $HOME_DIR/.config/alacritty/alacritty.yml
+      wget $DOTS_REPO/terminals/alacritty/alacritty.yml -O {{ normal_user_home }}/.config/alacritty/alacritty.yml
 
       # install tmux config
-      wget $DOTS_REPO/terminals/tmux/.tmux.conf -O $HOME_DIR/.tmux.conf
+      wget $DOTS_REPO/terminals/tmux/.tmux.conf -O {{ normal_user_home }}/.tmux.conf
 
       # install Vundle vim plugin manager
-      if [! -d "$HOME_DIR/.vim/bundle/Vundle.vim" ]; then
-        git clone https://github.com/VundleVim/Vundle.vim.git $HOME_DIR/.vim/bundle/Vundle.vim
+      if [! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
       fi
 
       # install Ctrlp fzf vim plugin
-      if [ ! -d "$HOME_DIR/.vim/bundle/ctrlp.vim" ]; then
-        git clone https://github.com/ctrlpvim/ctrlp.vim.git $HOME_DIR/.vim/bundle/ctrlp.vim
+      if [ ! -d "{{ normal_user_home }}/.vim/bundle/ctrlp.vim" ]; then
+        git clone https://github.com/ctrlpvim/ctrlp.vim.git {{ normal_user_home }}/.vim/bundle/ctrlp.vim
       fi
 
       # install neovim config
-      if [ -d "$HOME_DIR/.SpaceVim" ]; then
+      if [ -d "{{ normal_user_home }}/.SpaceVim" ]; then
         # install color
-        wget $DOTS_REPO/vi/nvim/colors/monokai_pro.vim -O $HOME_DIR/.SpaceVim/colors/monokai_pro.vim
+        wget $DOTS_REPO/vi/nvim/colors/monokai_pro.vim -O {{ normal_user_home }}/.SpaceVim/colors/monokai_pro.vim
 
         # override config
-        wget $DOTS_REPO/vi/nvim/init.vim -O $HOME_DIR/.SpaceVim/init.vim
+        wget $DOTS_REPO/vi/nvim/init.vim -O {{ normal_user_home }}/.SpaceVim/init.vim
       fi
 
       # install spacevim config
-      if [ ! -d "$HOME_DIR/.SpaceVim.d" ]; then
-        mkdir $HOME_DIR/.SpaceVim.d
+      if [ ! -d "{{ normal_user_home }}/.SpaceVim.d" ]; then
+        mkdir {{ normal_user_home }}/.SpaceVim.d
       fi
-      wget $DOTS_REPO/vi/spacevim/init.toml -O $HOME_DIR/.SpaceVim.d/init.toml
+      wget $DOTS_REPO/vi/spacevim/init.toml -O {{ normal_user_home }}/.SpaceVim.d/init.toml
 
   # Set wallpaper
   # - name: copy wallpaper file
