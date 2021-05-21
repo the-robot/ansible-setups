@@ -25,6 +25,7 @@
         - neofetch
         - htop
         - tmux
+        - vim
         - neovim
         - zsh
         - fzf
