@@ -119,7 +119,7 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v go &> /dev/null; then
-        wget {{ golang_download_url }} -O /tmp/go.tar.gz
+        curl -o /tmp/go.tar.gz {{ golang_download_url }}
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
       fi
@@ -164,10 +164,10 @@
       fi
 
       # override vscode settings.json
-      wget $DOTS_REPO/vscode/settings.json -O {{ normal_user_home }}/.config/Code\ -\ OSS/User/settings.json
+      curl -o {{ normal_user_home }}/.config/Code\ -\ OSS/User/settings.json $DOTS_REPO/vscode/settings.json
 
       # install z.sh
-      wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O {{ normal_user_home }}/.z.sh
+      curl -o {{ normal_user_home }}/.z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
 
       # install oh-my-zsh if not exists
       if [ ! -d "{{ normal_user_home }}/.oh-my-zsh" ]; then
@@ -180,16 +180,16 @@
       fi
 
       # override .zshrc
-      wget $DOTS_REPO/terminals/.zshrc -O {{ normal_user_home }}/.zshrc
+      curl -o {{ normal_user_home }}/.zshrc $DOTS_REPO/terminals/.zshrc
 
       # create alacritty folder and setup config if not exists
       if [ ! -d "{{ normal_user_home }}/.config/alacritty" ]; then
         mkdir {{ normal_user_home }}/.config/alacritty
       fi
-      wget $DOTS_REPO/terminals/alacritty/alacritty.yml -O {{ normal_user_home }}/.config/alacritty/alacritty.yml
+      curl -o {{ normal_user_home }}/.config/alacritty/alacritty.yml $DOTS_REPO/terminals/alacritty/alacritty.yml
 
       # install tmux config
-      wget $DOTS_REPO/terminals/tmux/.tmux.conf -O {{ normal_user_home }}/.tmux.conf
+      curl -o {{ normal_user_home }}/.tmux.conf $DOTS_REPO/terminals/tmux/.tmux.conf
 
       # install tmux cpu plugin
       if [ ! -d "{{ normal_user_home }}/.tmux/plugins/tmux-cpu" ]; then
@@ -209,17 +209,17 @@
       # install neovim config
       if [ -d "{{ normal_user_home }}/.SpaceVim" ]; then
         # install color
-        wget $DOTS_REPO/vi/nvim/colors/monokai_pro.vim -O {{ normal_user_home }}/.SpaceVim/colors/monokai_pro.vim
+        curl -o {{ normal_user_home }}/.SpaceVim/colors/monokai_pro.vim $DOTS_REPO/vi/nvim/colors/monokai_pro.vim
 
         # override config
-        wget $DOTS_REPO/vi/nvim/init.vim -O {{ normal_user_home }}/.SpaceVim/init.vim
+        curl -o {{ normal_user_home }}/.SpaceVim/init.vim $DOTS_REPO/vi/nvim/init.vim
       fi
 
       # install spacevim config
       if [ ! -d "{{ normal_user_home }}/.SpaceVim.d" ]; then
         mkdir {{ normal_user_home }}/.SpaceVim.d
       fi
-      wget $DOTS_REPO/vi/spacevim/init.toml -O {{ normal_user_home }}/.SpaceVim.d/init.toml
+      curl -o {{ normal_user_home }}/.SpaceVim.d/init.toml $DOTS_REPO/vi/spacevim/init.toml
 
   # Set wallpaper
   # - name: copy wallpaper file
