@@ -11,7 +11,7 @@
 Run the command below to automatically setup the arch linux with ansible playbook.
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/setup-arch.sh | sudo bash -s -- <normal_username>
+curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
 ## 2. Contribution
