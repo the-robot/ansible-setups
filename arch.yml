@@ -50,6 +50,7 @@
         - docker
         - kubectl
         - minikube
+        - helm
         - terraform
   
   # Add user to docker
