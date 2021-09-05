@@ -50,16 +50,6 @@
         - python3-virtualenv
         - code-oss
         - filezilla
-  
-  - name: essential fonts
-    package:
-      name:
-        - ttf-mscorefonts-installer
-        - fonts-liberation
-        - fonts-uralic
-        - fonts-linuxlibertine
-        - fonts-dustin
-        - ttf-staypuft
 
   # Install go programming
   - name: install go programming language
