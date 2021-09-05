@@ -23,7 +23,7 @@
   - name: install essential tools
     package:
       name:
-        - batsudo apt install discord-*.deb
+        - bate, "msg": "No package(s) matching 'bat
         - wget
         - neofetch
         - htop
