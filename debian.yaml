@@ -12,7 +12,6 @@
     telegram_download_url: https://telegram.org/dl/desktop/linux
     discord_download_url: https://discordapp.com/api/download?platform=linux&format=deb
     slack_download_url: https://downloads.slack-edge.com/releases/linux/4.19.2/prod/x64/slack-desktop-4.19.2-amd64.deb
-    postman_download_url: https://dl.pstmn.io/download/latest/linux64
 
   tasks:
   # Debug
@@ -44,7 +43,6 @@
   - name: install developer tools
     package:
       name:
-        - libc++1
         - python3-pip
         - python-setuptools
         - python3-virtualenv
@@ -101,22 +99,22 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      if ! command -v telegram-desktop &> /dev/null; then
+      if ! command -v Telegram &> /dev/null; then
         curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
         tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
+        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Telegram
+        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Updater
         rm /tmp/telegram-desktop.tar.gz
       fi
   
   # Install slack
   - name: install slack
     shell: |
-      if ! command -v slack-desktop &> /dev/null; then
+      if ! command -v slack &> /dev/null; then
         curl -L -o /tmp/slack-desktop.deb "{{ slack_download_url }}"
         dpkg -i /tmp/slack-desktop.deb
         rm /tmp/slack-desktop.deb
       fi
-  
-  # Install plex media player
   
   # Install postmam
   - name: install postman
@@ -199,3 +197,8 @@
         mkdir {{ normal_user_home }}/.SpaceVim.d
       fi
       curl -o {{ normal_user_home }}/.SpaceVim.d/init.toml $DOTS_REPO/vi/spacevim/init.toml
+
+  # install app dependencies
+  - name: install app dependencies
+    shell: |
+      apt install -f
