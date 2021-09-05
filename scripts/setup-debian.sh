@@ -40,5 +40,14 @@ install_if_not_exists "git"
 # install ansible if not exists
 install_if_not_exists "ansible"
 
+# install snap if not exists
+install_if_not_exists "snapd"
+
+# enable snapd
+systemctl unmask snapd.service
+systemctl enable snapd.service
+systemctl start snapd.service
+snap install core
+
 # clone ansible playbook and install
 setup_ansible
