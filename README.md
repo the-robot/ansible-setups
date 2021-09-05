@@ -4,9 +4,11 @@
   <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
 </p>
   
-## 1. Installation
+# 1. Installation
 
 **NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
+
+## Arch Linux
 
 Run the command below to automatically setup the arch linux with ansible playbook.
 
@@ -14,11 +16,21 @@ Run the command below to automatically setup the arch linux with ansible playboo
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
-## 2. Contribution
+## Debian
+
+```sh
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-debian.sh | sudo bash -s -- $(whoami)
+```
+
+<br/>
+
+# 2. Contribution
 
 Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html) for formatting the bash script.
 
-## 3. Tools not install automatically
+<br/>
+
+# 3. Tools not install automatically
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
