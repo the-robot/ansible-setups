@@ -94,18 +94,18 @@
         rm /tmp/discord.deb
       fi
   
-  # Install telegram
-  - name: install telegram
-    become: yes
-    become_user: "{{ normal_user }}"
-    shell: |
-      if ! command -v Telegram &> /dev/null; then
-        curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
-        tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
-        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Telegram
-        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Updater
-        rm /tmp/telegram-desktop.tar.gz
-      fi
+#   # Install telegram
+#   - name: install telegram
+#     become: yes
+#     become_user: "{{ normal_user }}"
+#     shell: |
+#       if ! command -v Telegram &> /dev/null; then
+#         curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
+#         tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
+#         chmod +x {{ normal_user_home }}/.local/bin/Telegram/Telegram
+#         chmod +x {{ normal_user_home }}/.local/bin/Telegram/Updater
+#         rm /tmp/telegram-desktop.tar.gz
+#       fi
   
   # Install slack
   - name: install slack
@@ -162,7 +162,14 @@
       fi
       # install zsh syntax highlight
       if [ ! -d "{{ normal_user_home }}/.zsh/zsh-syntax-highlighting" ]; then
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
+        git # Install spacevim
+  - name: install spacevim
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if [ ! -d "/home/{{ normal_user }}/.SpaceVim.d" ]; then
+        curl -sLf https://spacevim.org/install.sh | bash
+      ficlone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
       fi
       # override .zshrc
       curl -o {{ normal_user_home }}/.zshrc $DOTS_REPO/terminals/.zshrc
