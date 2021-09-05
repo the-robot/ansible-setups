@@ -29,7 +29,7 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 ## XFCE
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | bash -s -- $(whoami)
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-xfce.sh | bash -s -- $(whoami)
 ```
 
 <br/>
