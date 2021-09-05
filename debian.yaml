@@ -62,8 +62,9 @@
   - name: install lsd (better ls)
     shell: |
       if ! command -v lsd &> /dev/null; then
-        curl -o /tmp/lsd.deb {{ lsd_download_url }}
+        curl -L -o /tmp/lsd.deb {{ lsd_download_url }}
         dpkg -i /tmp/lsd.deb
+        rm /tmp/lsd.deb
       fi
   
   # Install discord
