@@ -29,7 +29,7 @@
         - neovim
         - zsh
         - fzf
-        - alacritty
+        # - alacritty
         - firefox
         - chromium
         - qbittorrent
