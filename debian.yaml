@@ -128,6 +128,15 @@
         apt install -y spotify-client
       fi
   
+  # Install alacritty
+  - name: install alacritty
+    shell: |
+      if ! command -v alacritty &> /dev/null; then
+        add-apt-repository ppa:mmstick76/alacritty
+        apt update
+        apt install alacritty
+      fi
+  
   # Install postmam
   - name: install postman
     become: yes
