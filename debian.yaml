@@ -21,6 +21,16 @@
     debug:
       msg: "Non root username is {{ normal_user }}."
 
+  # Add PPA
+  - name: add ppa and update apt
+    shell: |
+      if ! command -v spotify &> /dev/null; then
+        curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add - 
+        echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
+      fi
+
+      apt update
+
   # Install packages
   - name: install essential tools
     package:
@@ -41,6 +51,7 @@
         - qbittorrent
         - openvpn
         - vlc
+        - spotify-client
 
   - name: install developer tools
     package:
@@ -76,7 +87,7 @@
     shell: |
       if ! command -v lsd &> /dev/null; then
         curl -L -o /tmp/lsd.deb "{{ lsd_download_url }}"
-        apt install /tmp/lsd.deb
+        dpkg -i /tmp/lsd.deb
         rm /tmp/lsd.deb
       fi
   
@@ -111,16 +122,6 @@
         curl -L -o /tmp/slack-desktop.deb {{ slack_download_url }}
         dpkg-deb -x /tmp/slack-desktop.deb {{ normal_user_home}}/.local/bin/Slack
         rm /tmp/slack-desktop.deb
-      fi
-
-  # Install spotify
-  - name: install spotify
-    shell: |
-      if ! command -v spotify &> /dev/null; then
-        curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-        echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-        apt update
-        apt install -y spotify-client
       fi
   
   # Install postmam
