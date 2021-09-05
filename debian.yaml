@@ -134,7 +134,7 @@
     become_user: "{{ normal_user }}"
     shell: |
       if [[ ! -d "{{ normal_user_home }}/.local/bin/Postman" ]]; then
-        curl -L -o /tmp/postman.tar.gz "{{ post_download_url }}"
+        curl -L -o /tmp/postman.tar.gz "{{ postman_download_url }}"
         tar -xf /tmp/postman.tar.gz -C {{ normal_user_home }}/.local/bin
         rm /tmp/postman.tar.gz
       fi
