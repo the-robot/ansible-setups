@@ -1,1 +1,46 @@
+---
 
+- hosts: localhost
+  connection: local
+  become: true
+
+  vars:
+    normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
+    normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
+    golang_download_url: https://golang.org/dl/go1.17.linux-amd64.tar.gz
+
+  tasks:
+  # Debug
+  - name: print variables for debug
+    debug:
+      msg: "Non root username is {{ normal_user }}."
+
+  # Install packages
+  - name: install essential tools
+    package:
+      name:
+        - bat
+        - lsd
+        - wget
+        - neofetch
+        - htop
+        - tmux
+        - vim
+        - neovim
+        - zsh
+        - fzf
+        - alacritty
+        - firefox
+        - chromium
+        - qbittorrent
+        - openvpn
+        - vlc
+
+  - name: install developer tools
+    package:
+      name:
+        - python-pip
+        - python-setuptools
+        - python-virtualenv
+        - vscode
+        - filezilla
