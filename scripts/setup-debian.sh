@@ -28,7 +28,7 @@ function install_if_not_exists() {
 #######################################
 function setup_ansible() {
     # pull ansible playbook
-    # ansible-pull -U $REPOSITORY_URL debian.yml
+    ansible-pull -U $REPOSITORY_URL debian.yml
 }
 
 # install git if not exists
