@@ -59,14 +59,11 @@
       
   # Install lsd
   # https://github.com/Peltoche/lsd
-  - name: install go programming language
-    become: yes
-    become_user: "{{ normal_user }}"
+  - name: install lsd (better ls)
     shell: |
       if ! command -v lsd &> /dev/null; then
-        curl -o /tmp/lsd.tar.gz {{ lsd_download_url }}
-        tar -xf /tmp/lsd.tar.gz -C {{ normal_user_home }}/.local/bin
-        rm /tmp/lsd.tar.gz
+        curl -o /tmp/lsd.deb {{ lsd_download_url }}
+        dpkg -i /tmp/lsd.deb
       fi
   
   # Install discord
