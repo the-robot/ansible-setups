@@ -20,7 +20,6 @@
       msg: "Non root username is {{ normal_user }}."
 
   # Install packages
-  # - lsd
   # - alacritty
   # - firefox
   - name: install essential tools
@@ -116,6 +115,16 @@
         curl -L -o /tmp/slack-desktop.deb {{ slack_download_url }}
         dpkg-deb -x /tmp/slack-desktop.deb {{ normal_user_home}}/.local/bin/Slack
         rm /tmp/slack-desktop.deb
+      fi
+
+  # Install spotify
+  - name: install spotify
+    shell: |
+      if ! command -v spotify-client &> /dev/null; then
+        curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+        echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+        apt update
+        apt install spotify-client
       fi
   
 #   # Install postmam
