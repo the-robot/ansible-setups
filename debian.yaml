@@ -8,6 +8,7 @@
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
     normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
     golang_download_url: https://dl.google.com/go/go1.17.linux-amd64.tar.gz
+    lsd_download_url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_amd64.deb
 
   tasks:
   # Debug
@@ -58,6 +59,15 @@
       
   # Install lsd
   # https://github.com/Peltoche/lsd
+  - name: install go programming language
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if ! command -v lsd &> /dev/null; then
+        curl -o /tmp/lsd.tar.gz {{ lsd_download_url }}
+        tar -xf /tmp/lsd.tar.gz -C {{ normal_user_home }}/.local/bin
+        rm /tmp/lsd.tar.gz
+      fi
   
   # Install discord
   
