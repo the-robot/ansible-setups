@@ -56,9 +56,8 @@
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
       fi
-      
+
   # Install lsd
-  # https://github.com/Peltoche/lsd
   - name: install lsd (better ls)
     shell: |
       if ! command -v lsd &> /dev/null; then
