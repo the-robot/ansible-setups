@@ -39,9 +39,9 @@
   - name: install developer tools
     package:
       name:
-        - python-pip
+        - python3-pip
         - python-setuptools
-        - python-virtualenv
+        - python3-virtualenv
         - code-oss
         - filezilla
 
@@ -55,6 +55,19 @@
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
       fi
+      
+  # Install lsd
+  # https://github.com/Peltoche/lsd
+  
+  # Install discord
+  
+  # Install telegram
+  
+  # Install slack
+  
+  # Install plex media player
+  
+  # Install postmam
   
   # Install spacevim
   - name: install spacevim
