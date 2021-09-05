@@ -9,7 +9,10 @@
     normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
     golang_download_url: https://dl.google.com/go/go1.17.linux-amd64.tar.gz
     lsd_download_url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_amd64.deb
+    telegram_download_url: https://telegram.org/dl/desktop/linux
     discord_download_url: https://discordapp.com/api/download?platform=linux&format=deb
+    slack_download_url: https://downloads.slack-edge.com/releases/linux/4.19.2/prod/x64/slack-desktop-4.19.2-amd64.deb
+    postman_download_url: https://dl.pstmn.io/download/latest/linux64
 
   tasks:
   # Debug
@@ -41,7 +44,6 @@
   - name: install developer tools
     package:
       name:
-        - slack-desktop
         - python3-pip
         - python-setuptools
         - python3-virtualenv
@@ -69,7 +71,7 @@
       fi
   
   # Install discord
-  - name: install lsd (better ls)
+  - name: install discord
     shell: |
       if ! command -v discord &> /dev/null; then
         curl -L -o /tmp/discord.deb {{ discord_download_url }}
@@ -78,12 +80,35 @@
       fi
   
   # Install telegram
+  - name: install telegram
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if ! command -v telegram-desktop &> /dev/null; then
+        curl -L -o /tmp/telegram-desktop.tar.gz {{ telegram_download_url }}
+        tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
+        rm /tmp/telegram-desktop.tar.gz
+      fi
   
   # Install slack
+  - name: install slack
+    shell: |
+      if ! command -v slack-desktop &> /dev/null; then
+        curl -L -o /tmp/slack-desktop.deb {{ slack_download_url }}
+        dpkg -i /tmp/slack-desktop.deb
+        rm /tmp/slack-desktop.deb
+      fi
   
   # Install plex media player
   
   # Install postmam
+  - name: install postman
+    shell: |
+      if ! command -v postman &> /dev/null; then
+        curl -L -o /tmp/postman.deb {{ postman_download_url }}
+        dpkg -i /tmp/postman.deb
+        rm /tmp/postman.deb
+      fi
   
   # Install spacevim
   - name: install spacevim
