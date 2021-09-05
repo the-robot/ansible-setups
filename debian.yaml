@@ -44,3 +44,85 @@
         - python-virtualenv
         - vscode
         - filezilla
+
+  # Install go programming
+  - name: install go programming language
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if ! command -v go &> /dev/null; then
+        curl -o /tmp/go.tar.gz {{ golang_download_url }}
+        tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
+        rm /tmp/go.tar.gz
+      fi
+  
+  # Install spacevim
+  - name: install spacevim
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if [ ! -d "/home/{{ normal_user }}/.SpaceVim.d" ]; then
+        curl -sLf https://spacevim.org/install.sh | bash
+      fi
+  # Install fonts
+  - name: install fonts
+    shell: |
+      if [ ! -d "/usr/local/share/fonts" ]; then
+        mkdir /usr/local/share/fonts
+      fi
+      cp -R fonts/* /usr/local/share/fonts
+  # Setup zsh and misc configs and plugins
+  - name: setup zshrc, oh-my-zsh and other configs
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      DOTS_REPO=https://raw.githubusercontent.com/the-robot/dots/master
+      # create config folder if not exists
+      if [ ! -d "{{ normal_user_home }}/.config" ]; then
+        mkdir {{ normal_user_home }}/.config
+      fi
+      # override vscode settings.json
+      curl -o {{ normal_user_home }}/.config/Code\ -\ OSS/User/settings.json $DOTS_REPO/vscode/settings.json
+      # install z.sh
+      curl -o {{ normal_user_home }}/.z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
+      # install oh-my-zsh if not exists
+      if [ ! -d "{{ normal_user_home }}/.oh-my-zsh" ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      fi
+      # install zsh syntax highlight
+      if [ ! -d "{{ normal_user_home }}/.zsh/zsh-syntax-highlighting" ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
+      fi
+      # override .zshrc
+      curl -o {{ normal_user_home }}/.zshrc $DOTS_REPO/terminals/.zshrc
+      # create alacritty folder and setup config if not exists
+      if [ ! -d "{{ normal_user_home }}/.config/alacritty" ]; then
+        mkdir {{ normal_user_home }}/.config/alacritty
+      fi
+      curl -o {{ normal_user_home }}/.config/alacritty/alacritty.yml $DOTS_REPO/terminals/alacritty/alacritty.yml
+      # install tmux config
+      curl -o {{ normal_user_home }}/.tmux.conf $DOTS_REPO/terminals/tmux/.tmux.conf
+      # install tmux cpu plugin
+      if [ ! -d "{{ normal_user_home }}/.tmux/plugins/tmux-cpu" ]; then
+        git clone https://github.com/tmux-plugins/tmux-cpu.git {{ normal_user_home }}/.tmux/plugins/tmux-cpu
+      fi
+      # install Vundle vim plugin manager
+      if [ ! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
+      fi
+      # install Ctrlp fzf vim plugin
+      if [ ! -d "{{ normal_user_home }}/.vim/bundle/ctrlp.vim" ]; then
+        git clone https://github.com/ctrlpvim/ctrlp.vim.git {{ normal_user_home }}/.vim/bundle/ctrlp.vim
+      fi
+      # install neovim config
+      if [ -d "{{ normal_user_home }}/.SpaceVim" ]; then
+        # install color
+        curl -o {{ normal_user_home }}/.SpaceVim/colors/monokai_pro.vim $DOTS_REPO/vi/nvim/colors/monokai_pro.vim
+        # override config
+        curl -o {{ normal_user_home }}/.SpaceVim/init.vim $DOTS_REPO/vi/nvim/init.vim
+      fi
+      # install spacevim config
+      if [ ! -d "{{ normal_user_home }}/.SpaceVim.d" ]; then
+        mkdir {{ normal_user_home }}/.SpaceVim.d
+      fi
+      curl -o {{ normal_user_home }}/.SpaceVim.d/init.toml $DOTS_REPO/vi/spacevim/init.toml
