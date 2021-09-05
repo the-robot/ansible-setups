@@ -12,6 +12,7 @@
     telegram_download_url: https://telegram.org/dl/desktop/linux
     discord_download_url: https://dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.tar.gz
     slack_download_url: https://downloads.slack-edge.com/releases/linux/4.19.2/prod/x64/slack-desktop-4.19.2-amd64.deb
+    postman_download_url: https://dl.pstmn.io/download/latest/linux64
 
   tasks:
   # Debug
@@ -127,12 +128,16 @@
         apt install -y spotify-client
       fi
   
-#   # Install postmam
-#   - name: install postman (with snap)
-#     shell: |
-#       if ! command -v postman &> /dev/null; then
-#         snap install postman
-#       fi
+  # Install postmam
+  - name: install postman
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if [[ ! -d "{{ normal_user_home }}/.local/bin/Postman" ]]; then
+        curl -L -o /tmp/postman.tar.gz "{{ post_download_url }}"
+        tar -xf /tmp/postman.tar.gz -C {{ normal_user_home }}/.local/bin
+        rm /tmp/postman.tar.gz
+      fi
   
   # Install spacevim
   - name: install spacevim
