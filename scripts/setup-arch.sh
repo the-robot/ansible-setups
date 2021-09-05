@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Constants
-readonly REPOSITORY_URL="https://github.com/the-robot/ansible-arch.git"
-readonly REPOSITORY_DIR="ansible-arch"
+readonly REPOSITORY_URL="https://github.com/the-robot/ansible-setups.git"
+readonly REPOSITORY_DIR="ansible-setups"
 export readonly NORMAL_USER=$1
 
 #######################################
