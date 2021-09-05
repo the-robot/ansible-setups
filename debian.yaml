@@ -56,7 +56,7 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v go &> /dev/null; then
-        curl -o /tmp/go.tar.gz {{ golang_download_url }}
+        curl -o /tmp/go.tar.gz "{{ golang_download_url }}"
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
       fi
@@ -65,7 +65,7 @@
   - name: install lsd (better ls)
     shell: |
       if ! command -v lsd &> /dev/null; then
-        curl -L -o /tmp/lsd.deb {{ lsd_download_url }}
+        curl -L -o /tmp/lsd.deb "{{ lsd_download_url }}"
         dpkg -i /tmp/lsd.deb
         rm /tmp/lsd.deb
       fi
@@ -74,7 +74,7 @@
   - name: install discord
     shell: |
       if ! command -v discord &> /dev/null; then
-        curl -L -o /tmp/discord.deb {{ discord_download_url }}
+        curl -L -o /tmp/discord.deb "{{ discord_download_url }}"
         dpkg -i /tmp/discord.deb
         rm /tmp/discord.deb
       fi
@@ -85,7 +85,7 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v telegram-desktop &> /dev/null; then
-        curl -L -o /tmp/telegram-desktop.tar.gz {{ telegram_download_url }}
+        curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
         tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
         rm /tmp/telegram-desktop.tar.gz
       fi
