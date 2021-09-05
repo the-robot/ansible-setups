@@ -21,8 +21,6 @@
       msg: "Non root username is {{ normal_user }}."
 
   # Install packages
-  # - alacritty
-  # - firefox
   - name: install essential tools
     package:
       name:
@@ -134,7 +132,7 @@
       if ! command -v alacritty &> /dev/null; then
         add-apt-repository ppa:mmstick76/alacritty
         apt update
-        apt install alacritty
+        apt install -y alacritty
       fi
   
   # Install postmam
