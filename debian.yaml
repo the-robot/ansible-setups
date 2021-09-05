@@ -25,6 +25,7 @@
   - name: install essential tools
     package:
       name:
+        - cmake
         - software-properties-common
         - bat
         - wget
@@ -74,6 +75,15 @@
         curl -o /tmp/go.tar.gz "{{ golang_download_url }}"
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
+      fi
+
+  # Install rust programming
+  - name: install rust programming language
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if ! command -v cargo &> /dev/null; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
       fi
 
   # Install lsd
@@ -132,9 +142,7 @@
   - name: install alacritty
     shell: |
       if ! command -v alacritty &> /dev/null; then
-        add-apt-repository ppa:mmstick76/alacritty
-        apt update
-        apt install -y alacritty
+        cargo install alacritty
       fi
   
   # Install postmam
