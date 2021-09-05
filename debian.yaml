@@ -27,8 +27,6 @@
       name:
         - cmake
         - software-properties-common
-        - libfreetype6-dev
-        - libfontconfig1-dev
         - xclip
         - bat
         - wget
@@ -139,13 +137,6 @@
         echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
         apt update
         apt install -y spotify-client
-      fi
-  
-  # Install alacritty
-  - name: install alacritty
-    shell: |
-      if ! command -v alacritty &> /dev/null; then
-        cargo install alacritty
       fi
   
   # Install postmam
