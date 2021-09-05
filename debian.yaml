@@ -27,6 +27,9 @@
       name:
         - cmake
         - software-properties-common
+        - libfreetype6-dev
+        - libfontconfig1-dev
+        - xclip
         - bat
         - wget
         - neofetch
