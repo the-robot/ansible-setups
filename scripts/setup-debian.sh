@@ -31,6 +31,9 @@ function setup_ansible() {
     ansible-pull -U $REPOSITORY_URL debian.yml
 }
 
+# update packages list
+apt update
+
 # install git if not exists
 install_if_not_exists "git"
 
