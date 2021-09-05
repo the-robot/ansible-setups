@@ -191,7 +191,7 @@
       if [ ! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
       fi
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
+
       # install Ctrlp fzf vim plugin
       if [ ! -d "{{ normal_user_home }}/.vim/bundle/ctrlp.vim" ]; then
         git clone https://github.com/ctrlpvim/ctrlp.vim.git {{ normal_user_home }}/.vim/bundle/ctrlp.vim
