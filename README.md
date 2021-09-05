@@ -1,4 +1,4 @@
-# Ansible setups
+# ansible setups
 
 <p align="center">
   <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
@@ -40,7 +40,7 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 
 <br/>
 
-# 4. Tools not install automatically
+# 4. Tools not installed by ansible
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
