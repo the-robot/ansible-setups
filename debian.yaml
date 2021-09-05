@@ -7,7 +7,7 @@
   vars:
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
     normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
-    golang_download_url: https://golang.org/dl/go1.17.linux-amd64.tar.gz
+    golang_download_url: https://dl.google.com/go/go1.17.linux-amd64.tar.gz
 
   tasks:
   # Debug
