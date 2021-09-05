@@ -7,6 +7,7 @@
   vars:
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
     normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
+
     golang_download_url: https://dl.google.com/go/go1.17.linux-amd64.tar.gz
     lsd_download_url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_amd64.deb
     telegram_download_url: https://telegram.org/dl/desktop/linux
@@ -24,6 +25,7 @@
   - name: install essential tools
     package:
       name:
+        - software-properties-common
         - bat
         - wget
         - neofetch
