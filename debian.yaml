@@ -55,17 +55,11 @@
     package:
       name:
         - ttf-mscorefonts-installer
-#         - ttf-liberation
-#         - fonts-liberation
-#         - ttf-uralic
-#         - fonts-uralic
-#         - ttf-root-installer
-#         - ttf-freefont
-#         - ttf-dustin
-#         - ttf-linux-libertine
-#         - fonts-linuxlibertine
-#         - fonts-dustin
-#         - ttf-staypuft
+        - fonts-liberation
+        - fonts-uralic
+        - fonts-linuxlibertine
+        - fonts-dustin
+        - ttf-staypuft
 
   # Install go programming
   - name: install go programming language
