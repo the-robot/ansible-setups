@@ -30,7 +30,7 @@
         - zsh
         - fzf
         # - alacritty
-        - firefox
+        # - firefox
         - chromium
         - qbittorrent
         - openvpn
@@ -38,11 +38,11 @@
 
   - name: install developer tools
     package:
-      name:
+      name:syu
         - python-pip
         - python-setuptools
         - python-virtualenv
-        - vscode
+        - code-oss # vscode
         - filezilla
 
   # Install go programming
