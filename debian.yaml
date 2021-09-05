@@ -150,7 +150,7 @@
       fi
 
       # override vscode settings.json
-      curl -o {{ normdiscord tar.gzal_user_home }}/.config/Code\ -\ OSS/User/settings.json $DOTS_REPO/vscode/settings.json
+      curl -o {{ normal_user_home }}/.config/Code\ -\ OSS/User/settings.json $DOTS_REPO/vscode/settings.json
 
       # install z.sh
       curl -o {{ normal_user_home }}/.z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
