@@ -11,6 +11,7 @@
     lsd_download_url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_amd64.deb
     telegram_download_url: https://telegram.org/dl/desktop/linux
     discord_download_url: https://dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.tar.gz
+    slack_download_url: https://downloads.slack-edge.com/releases/linux/4.19.2/prod/x64/slack-desktop-4.19.2-amd64.deb
 
   tasks:
   # Debug
@@ -107,11 +108,15 @@
       fi
   
   # Install slack
-#   - name: install slack (with snap)
-#     shell: |
-#       if ! command -v slack &> /dev/null; then
-#         snap install slack --classic
-#       fi
+  - name: install slack
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if [[ ! -d "{{ normal_user_home }}/.local/bin/Slack" ]]; then
+        curl -L -o /tmp/slack-desktop.deb {{ slack_download_url }}
+        dpkg-deb -x /tmp/slack-desktop.deb {{ normal_user_home}}/.local/bin/Slack
+        rm /tmp/slack-desktop.deb
+      fi
   
 #   # Install postmam
 #   - name: install postman (with snap)
@@ -186,7 +191,7 @@
       if [ ! -d "{{ normal_user_home }}/.vim/bundle/Vundle.vim" ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git {{ normal_user_home }}/.vim/bundle/Vundle.vim
       fi
-
+curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
       # install Ctrlp fzf vim plugin
       if [ ! -d "{{ normal_user_home }}/.vim/bundle/ctrlp.vim" ]; then
         git clone https://github.com/ctrlpvim/ctrlp.vim.git {{ normal_user_home }}/.vim/bundle/ctrlp.vim
