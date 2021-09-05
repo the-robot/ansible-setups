@@ -16,11 +16,13 @@
       msg: "Non root username is {{ normal_user }}."
 
   # Install packages
+  # - lsd
+  # - alacritty
+  # - firefox
   - name: install essential tools
     package:
       name:
         - bat
-        # - lsd
         - wget
         - neofetch
         - htop
@@ -29,8 +31,6 @@
         - neovim
         - zsh
         - fzf
-        # - alacritty
-        # - firefox
         - chromium
         - qbittorrent
         - openvpn
