@@ -89,7 +89,7 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      if ! command -v discord &> /dev/null; then
+      if ! [[ -d "{{ normal_user_home }}/.local/bin/Discord" ]]; then
         curl -L -o /tmp/discord.tar.gz "{{ discord_download_url }}"
         tar -xf /tmp/discord.tar.gz -C {{ normal_user_home }}/.local/bin
         rm /tmp/discord.tar.gz
@@ -100,7 +100,7 @@
     become: yes
     become_user: "{{ normal_user }}"
     shell: |
-      if ! command -v Telegram &> /dev/null; then
+      if ! [[ -d "{{ normal_user_home }}/.local/bin/Telegram" ]]; then
         curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
         tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
         rm /tmp/telegram-desktop.tar.gz
