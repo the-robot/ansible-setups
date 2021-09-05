@@ -123,7 +123,7 @@
     become_user: "{{ normal_user }}"
     shell: |
       if ! command -v go &> /dev/null; then
-        curl -o /tmp/go.tar.gz {{ golang_download_url }}
+        curl -L -o /tmp/go.tar.gz "{{ golang_download_url }}"
         tar -xf /tmp/go.tar.gz -C {{ normal_user_home }}
         rm /tmp/go.tar.gz
       fi
