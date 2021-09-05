@@ -44,27 +44,28 @@
   - name: install developer tools
     package:
       name:
+        - libc++1
         - python3-pip
         - python-setuptools
         - python3-virtualenv
         - code-oss
         - filezilla
   
-  - name: essential fonts
-    package:
-      name:
-        - ttf-mscorefonts-installer
-        - ttf-liberation
-        - fonts-liberation
-        - ttf-uralic
-        - fonts-uralic
-        - ttf-root-installer
-        - ttf-freefont
-        - ttf-dustin
-        - ttf-linux-libertine
-        - fonts-linuxlibertine
-        - fonts-dustin
-        - ttf-staypuft
+#   - name: essential fonts
+#     package:
+#       name:
+#         - ttf-mscorefonts-installer
+#         - ttf-liberation
+#         - fonts-liberation
+#         - ttf-uralic
+#         - fonts-uralic
+#         - ttf-root-installer
+#         - ttf-freefont
+#         - ttf-dustin
+#         - ttf-linux-libertine
+#         - fonts-linuxlibertine
+#         - fonts-dustin
+#         - ttf-staypuft
 
   # Install go programming
   - name: install go programming language
@@ -110,7 +111,7 @@
   - name: install slack
     shell: |
       if ! command -v slack-desktop &> /dev/null; then
-        curl -L -o /tmp/slack-desktop.deb {{ slack_download_url }}
+        curl -L -o /tmp/slack-desktop.deb "{{ slack_download_url }}"
         dpkg -i /tmp/slack-desktop.deb
         rm /tmp/slack-desktop.deb
       fi
@@ -121,7 +122,7 @@
   - name: install postman
     shell: |
       if ! command -v postman &> /dev/null; then
-        curl -L -o /tmp/postman.deb {{ postman_download_url }}
+        curl -L -o /tmp/postman.deb "{{ postman_download_url }}"
         dpkg -i /tmp/postman.deb
         rm /tmp/postman.deb
       fi
