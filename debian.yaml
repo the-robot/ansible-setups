@@ -23,7 +23,7 @@
   - name: install essential tools
     package:
       name:
-        - bate, "msg": "No package(s) matching 'bat
+        - bat
         - wget
         - neofetch
         - htop
