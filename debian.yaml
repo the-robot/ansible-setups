@@ -9,6 +9,8 @@
     normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
     golang_download_url: https://dl.google.com/go/go1.17.linux-amd64.tar.gz
     lsd_download_url: https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_amd64.deb
+    telegram_download_url: https://telegram.org/dl/desktop/linux
+    discord_download_url: https://dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.tar.gz
 
   tasks:
   # Debug
@@ -83,32 +85,42 @@
       fi
   
   # Install discord
-  - name: install discord (with snap)
+  - name: install discord
+    become: yes
+    become_user: "{{ normal_user }}"
     shell: |
       if ! command -v discord &> /dev/null; then
-        snap install discord
+        curl -L -o /tmp/discord.tar.gz "{{ discord_download_url }}"
+        tar -xf /tmp/discord.tar.gz -C {{ normal_user_home }}/.local/bin
+        rm /tmp/discord.tar.gz
       fi
   
   # Install telegram
-  - name: install telegram (with snap)
+  - name: install telegram
+    become: yes
+    become_user: "{{ normal_user }}"
     shell: |
-      if ! command -v telegram-desktop &> /dev/null; then
-        snap install telegram-desktop
+      if ! command -v Telegram &> /dev/null; then
+        curl -L -o /tmp/telegram-desktop.tar.gz "{{ telegram_download_url }}"
+        tar -xf /tmp/telegram-desktop.tar.gz -C {{ normal_user_home }}/.local/bin
+        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Telegram
+        chmod +x {{ normal_user_home }}/.local/bin/Telegram/Updater
+        rm /tmp/telegram-desktop.tar.gz
       fi
   
   # Install slack
-  - name: install slack (with snap)
-    shell: |
-      if ! command -v slack &> /dev/null; then
-        snap install slack --classic
-      fi
+#   - name: install slack (with snap)
+#     shell: |
+#       if ! command -v slack &> /dev/null; then
+#         snap install slack --classic
+#       fi
   
-  # Install postmam
-  - name: install postman (with snap)
-    shell: |
-      if ! command -v postman &> /dev/null; then
-        snap install postman
-      fi
+#   # Install postmam
+#   - name: install postman (with snap)
+#     shell: |
+#       if ! command -v postman &> /dev/null; then
+#         snap install postman
+#       fi
   
   # Install spacevim
   - name: install spacevim
