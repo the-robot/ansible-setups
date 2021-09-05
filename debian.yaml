@@ -36,15 +36,6 @@
         - openvpn
         - vlc
 
-  - name: install developer tools
-    package:
-      name:syu
-        - python-pip
-        - python-setuptools
-        - python-virtualenv
-        - code-oss
-        - filezilla
-
   # Install go programming
   - name: install go programming language
     become: yes
@@ -71,6 +62,7 @@
         mkdir /usr/local/share/fonts
       fi
       cp -R fonts/* /usr/local/share/fonts
+
   # Setup zsh and misc configs and plugins
   - name: setup zshrc, oh-my-zsh and other configs
     become: yes
