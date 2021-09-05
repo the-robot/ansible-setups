@@ -2,7 +2,7 @@
 
 - hosts: localhost
   connection: local
-  become: true
+  # become: true
   
   vars:
     normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
