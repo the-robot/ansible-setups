@@ -110,6 +110,9 @@
 
       # install bitwarden
       yay_if_not_exists "bitwarden" "bitwarden-bin"
+      
+      # install plex client
+      yay_if_not_exists "plex-media-player" "plexmediaplayer"
 
       # clean unneeded dependencies
       yay --clean --noconfirm
