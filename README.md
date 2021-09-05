@@ -1,4 +1,4 @@
-# Ansible setup for Arch based distros
+# Ansible setups
 
 <p align="center">
   <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
@@ -11,7 +11,7 @@
 Run the command below to automatically setup the arch linux with ansible playbook.
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-arch/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
 ## 2. Contribution
