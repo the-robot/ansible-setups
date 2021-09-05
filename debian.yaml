@@ -42,7 +42,7 @@
         - python-pip
         - python-setuptools
         - python-virtualenv
-        - code-oss # vscode
+        - code-oss
         - filezilla
 
   # Install go programming
