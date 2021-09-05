@@ -1,0 +1,32 @@
+
+---
+
+- hosts: localhost
+  connection: local
+  become: true
+  
+  vars:
+    normal_user: "{{ lookup('env', 'NORMAL_USER' )}}"
+    normal_user_home: "/home/{{ lookup('env', 'NORMAL_USER' )}}"
+  
+  tasks:
+  # Debug
+  - name: print variables for debug
+    debug:
+      msg: "Non root username is {{ normal_user }}."
+
+  # Setup icons
+  - name: setup icons
+    shell: |
+      if [ ! -d "{{ normal_user_home }}/.icons" ]; then
+        mkdir {{ normal_user_home }}/.icons
+      fi
+      cp -R icons/* {{ normal_user_home }}/.icons
+
+  # Setup themes
+  - name: setup themes
+    shell: |
+      if [ ! -d "{{ normal_user_home }}/.themes" ]; then
+        mkdir {{ normal_user_home }}/.themes
+      fi
+      cp -R xfce-themes/* {{ normal_user_home }}/.themes
