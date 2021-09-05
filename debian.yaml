@@ -36,6 +36,15 @@
         - openvpn
         - vlc
 
+  - name: install developer tools
+    package:
+      name:
+        - python-pip
+        - python-setuptools
+        - python-virtualenv
+        - code-oss
+        - filezilla
+
   # Install go programming
   - name: install go programming language
     become: yes
