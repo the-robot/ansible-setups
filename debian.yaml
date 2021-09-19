@@ -62,6 +62,11 @@
         - python3-virtualenv
         - code-oss
         - filezilla
+        
+  - name: install pentest tools
+    package:
+      name:
+        - feroxbuster
         - pwncat
 
   # Install go programming
