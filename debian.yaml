@@ -45,6 +45,7 @@
         - tmux
         - vim
         - neovim
+        - gedit
         - zsh
         - fzf
         - chromium
