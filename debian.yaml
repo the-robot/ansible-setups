@@ -97,6 +97,11 @@
         dpkg -i /tmp/lsd.deb
         rm /tmp/lsd.deb
       fi
+
+  # Install updog
+  - name install updog (better python3 SimpleHttpServer)
+    shell: |
+      pip3 install updog
   
   # Install discord
   - name: install discord
