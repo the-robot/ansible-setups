@@ -62,6 +62,7 @@
         - python3-virtualenv
         - code-oss
         - filezilla
+        - html2text
         
   - name: install pentest tools
     package:
