@@ -25,7 +25,7 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 ## Alpine
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine.sh | bash
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine.sh | ash
 ```
 
 <br/>
