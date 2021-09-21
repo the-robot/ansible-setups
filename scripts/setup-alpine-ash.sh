@@ -24,3 +24,7 @@ echo "alias nv='nvim'" >> ~/.zshrc
 
 # update timezone
 cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
+
+# install feroxbuster
+curl -sL https://raw.githubusercontent.com/epi052/feroxbuster/master/install-nix.sh | bash
+mv feroxbuster /usr/local/bin
