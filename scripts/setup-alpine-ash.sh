@@ -7,7 +7,7 @@ apk update
 apk add tzdata shadow git python2 python3 python3-dev py3-pip nodejs-current npm go openssh tmux neovim fzf zsh
 
 # install extras
-apk add nmap netcat-openbsd openssh
+apk add nmap netcat-openbsd openssh neofetch
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
