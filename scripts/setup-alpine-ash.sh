@@ -17,3 +17,8 @@ echo "use `chsh` to change default shell"
 
 # clone tmux config
 curl https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmux.conf -o ~/.tmux.conf
+
+# update zsh config
+echo "alias tmux='tmux -u'" > ~/.zshrc
+echo "alias vf='nvim $(fzf)'" > ~/.zshrc
+echo "alias nv='nvim'" > ~/.zshrc
