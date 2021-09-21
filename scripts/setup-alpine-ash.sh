@@ -21,3 +21,7 @@ curl https://raw.githubusercontent.com/the-robot/dots/master/terminals/tmux/.tmu
 # update zsh config
 echo "alias tmux='tmux -u'" >> ~/.zshrc
 echo "alias nv='nvim'" >> ~/.zshrc
+
+# update timezone
+apk add tzdata
+cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
