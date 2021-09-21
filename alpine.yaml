@@ -1,1 +1,29 @@
+---
 
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  # Install packages
+  - name: install essential tools
+    package:
+      name:
+        - tmux
+        - neovim
+        - nano
+        - neofetch
+        - wget
+        - curl
+        - zsh
+        - fzf
+
+  - name: install extra tools
+    package:
+      name:
+        - nmap
+        - netcat-openbsd
+        - python3
+        - python2
+        - py3-pip
+        - go
