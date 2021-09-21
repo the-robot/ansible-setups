@@ -13,4 +13,4 @@ apk add nmap netcat-openbsd openssh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # message
-echo "use `chsh` to change default shell.`
+echo "use `chsh` to change default shell`
