@@ -1,11 +1,10 @@
 #!/bin/ash
 
-# Constants
-readonly REPOSITORY_URL="https://github.com/the-robot/ansible-setups.git"
-readonly REPOSITORY_DIR="ansible-setups"
-
 # update packages
 apk update
 
 # install essential packages
-apk add git
+apk add git python2 python3 python3-dev py3-pip go openssh tmux neovim fzf zsh
+
+# install extras
+apk add nmap netcat-openbsd openssh
