@@ -4,7 +4,7 @@
 apk update
 
 # install essential packages
-apk add tzdata shadow git python2 python3 python3-dev py3-pip nodejs-current npm go openssh tmux zsh
+apk add tzdata shadow git python2 python3 python3-dev py3-pip nodejs-current npm go rust openssh tmux zsh
 
 # install extras
 apk add nmap netcat-openbsd openssh neofetch neovim nano fzf
