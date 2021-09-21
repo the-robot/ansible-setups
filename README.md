@@ -22,6 +22,12 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-debian.sh | sudo bash -s -- $(whoami)
 ```
 
+## Alpine
+
+```sh
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine.sh | sudo bash -s -- $(whoami)
+```
+
 <br/>
 
 # 2. DE Setup
