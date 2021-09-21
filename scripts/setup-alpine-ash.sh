@@ -23,5 +23,4 @@ echo "alias tmux='tmux -u'" >> ~/.zshrc
 echo "alias nv='nvim'" >> ~/.zshrc
 
 # update timezone
-apk add tzdata
 cp /usr/share/zoneinfo/Asia/Singapore /etc/localtime
