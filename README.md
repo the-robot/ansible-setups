@@ -22,10 +22,10 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-debian.sh | sudo bash -s -- $(whoami)
 ```
 
-## Alpine
+## Alpine (no Ansible, for environment with no `/dev/shm`)
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine.sh | ash
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine-ash.sh | ash
 ```
 
 <br/>
