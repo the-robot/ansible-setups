@@ -4,7 +4,7 @@
   <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
 </p>
 
-[the-robot/dots](https://github.com/the-robot/dots) if you are looking for dotfiles.
+[the-robot/dots](https://github.com/the-robot/dots) if you are looking for dot files.
   
 # 1. Distro Setup
 
