@@ -63,6 +63,7 @@
         - code-oss
         - filezilla
         - html2text
+        - remmina
         
   - name: install pentest tools
     package:
