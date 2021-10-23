@@ -101,7 +101,7 @@
       fi
 
   # Install updog
-  - name install updog (better python3 SimpleHttpServer)
+  - name: install updog (better python3 SimpleHttpServer)
     shell: |
       pip3 install updog
   
