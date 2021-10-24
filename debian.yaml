@@ -65,7 +65,8 @@
         - filezilla
         - html2text
         - remmina
-        
+        - mingw-w64
+
   - name: install pentest tools
     package:
       name:
