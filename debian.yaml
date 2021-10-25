@@ -66,6 +66,7 @@
         - html2text
         - remmina
         - mingw-w64
+        - wine
 
   - name: install pentest tools
     package:
