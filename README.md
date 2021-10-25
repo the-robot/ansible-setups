@@ -18,10 +18,10 @@ Run the command below to automatically setup the arch linux with ansible playboo
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
-## Debian
+## Kali Linux
 
 ```sh
-curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-debian.sh | sudo bash -s -- $(whoami)
+curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-kali.sh | sudo bash -s -- $(whoami)
 ```
 
 ## Alpine (no Ansible, for environment with no `/dev/shm`)
