@@ -22,12 +22,14 @@
       msg: "Non root username is {{ normal_user }}."
 
   # Add PPA
-  - name: add ppa and update apt
+  - name: add ppa, enable 32 bit and apt update
     shell: |
       if ! command -v spotify &> /dev/null; then
         curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | apt-key add - 
         echo "deb http://repository.spotify.com stable non-free" | tee /etc/apt/sources.list.d/spotify.list
       fi
+
+      dpkg --add-architecture i386
 
       apt update
 
@@ -67,6 +69,7 @@
         - remmina
         - mingw-w64
         - wine
+        - wine32
 
   - name: install pentest tools
     package:
