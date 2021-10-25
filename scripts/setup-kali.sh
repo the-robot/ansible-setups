@@ -28,7 +28,7 @@ function install_if_not_exists() {
 #######################################
 function setup_ansible() {
     # pull ansible playbook
-    ansible-pull -U $REPOSITORY_URL debian.yaml
+    ansible-pull -U $REPOSITORY_URL kali.yaml
 }
 
 # update packages list
