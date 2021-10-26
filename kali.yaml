@@ -66,6 +66,7 @@
         - mingw-w64
         - wine
         - wine32
+        - pure-ftpd
 
   - name: install pentest tools
     package:
