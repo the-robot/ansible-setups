@@ -73,6 +73,7 @@
       name:
         - feroxbuster
         - pwncat
+        - shellter
 
   # Install go programming
   - name: install go programming language
