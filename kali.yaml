@@ -75,6 +75,7 @@
         - pwncat
         - shellter
         - crowbar
+        - rinetd
 
   # Install go programming
   - name: install go programming language
