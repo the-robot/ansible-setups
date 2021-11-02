@@ -92,6 +92,9 @@
           yay -a -Sy --noconfirm --cleanafter $2
         fi
       }
+      
+      # install docker-compose
+      yay_if_not_exists "docker-compose" "docker-compose"
 
       # install spotify
       yay_if_not_exists "spotify" "spotify"
