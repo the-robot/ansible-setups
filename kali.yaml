@@ -79,6 +79,7 @@
         - crowbar
         - rinetd
         - httptunnel
+        - powershell-empire
 
   # Install go programming
   - name: install go programming language
