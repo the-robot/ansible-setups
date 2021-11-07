@@ -80,6 +80,7 @@
         - rinetd
         - httptunnel
         - powershell-empire
+        - kerberoast
 
   # Install go programming
   - name: install go programming language
