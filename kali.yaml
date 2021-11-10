@@ -74,6 +74,7 @@
     package:
       name:
         - feroxbuster
+        - gobuster
         - pwncat
         - shellter
         - crowbar
