@@ -81,6 +81,7 @@
         - httptunnel
         - powershell-empire
         - kerberoast
+        - seclists
 
   # Install go programming
   - name: install go programming language
