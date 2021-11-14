@@ -138,6 +138,15 @@
         curl -sLf https://spacevim.org/install.sh | bash
       fi
 
+  # Install rust programming
+  - name: install rust programming language
+    become: yes
+    become_user: "{{ normal_user }}"
+    shell: |
+      if ! command -v cargo &> /dev/null; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+      fi
+
   # Install fonts
   - name: install fonts
     shell: |
