@@ -84,6 +84,7 @@
         - powershell-empire
         - kerberoast
         - seclists
+        - smtp-user-enum
 
   # Install go programming
   - name: install go programming language
