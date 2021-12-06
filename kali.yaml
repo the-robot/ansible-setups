@@ -85,6 +85,7 @@
         - kerberoast
         - seclists
         - smtp-user-enum
+        - exiftool
 
   # Install go programming
   - name: install go programming language
