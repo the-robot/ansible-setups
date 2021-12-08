@@ -86,6 +86,7 @@
         - seclists
         - smtp-user-enum
         - exiftool
+        - sublist3r
 
   # Install go programming
   - name: install go programming language
