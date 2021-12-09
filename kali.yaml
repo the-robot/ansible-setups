@@ -87,6 +87,7 @@
         - smtp-user-enum
         - exiftool
         - sublist3r
+        - fcrackzip
 
   # Install go programming
   - name: install go programming language
