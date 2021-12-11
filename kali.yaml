@@ -70,10 +70,12 @@
         - wine32
         - lftp
         - pure-ftpd
+        - redis-tools
 
   - name: install pentest tools
     package:
       name:
+        - seclists
         - feroxbuster
         - gobuster
         - pwncat
@@ -89,6 +91,16 @@
         - sublist3r
         - fcrackzip
         - tnscmd10g # useful for testing Oracle TNS listener
+        - wkhtmltopdf
+        - oscanner
+        - enum4linux
+        - impacket-scripts 
+        - nbtscan
+        - onesixtyone
+        - sslscan
+        - sipvicious
+        - whatweb
+
 
   # Install go programming
   - name: install go programming language
