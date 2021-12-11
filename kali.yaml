@@ -51,7 +51,7 @@
         - qbittorrent
         - openvpn
         - vlc
-        - spotify-client
+        - spotify-client # IPSec VPN
 
   - name: install developer tools
     package:
