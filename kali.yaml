@@ -71,6 +71,7 @@
         - lftp
         - pure-ftpd
         - redis-tools
+        - strongswan
 
   - name: install pentest tools
     package:
