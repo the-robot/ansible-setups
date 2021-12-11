@@ -88,6 +88,7 @@
         - exiftool
         - sublist3r
         - fcrackzip
+        - tnscmd10g # useful for testing Oracle TNS listener
 
   # Install go programming
   - name: install go programming language
