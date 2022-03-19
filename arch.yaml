@@ -191,8 +191,11 @@
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ normal_user_home }}/.zsh/zsh-syntax-highlighting
       fi
 
-      # override .zshrc
+      # set .zshrc
       curl -o {{ normal_user_home }}/.zshrc $DOTS_REPO/terminals/.zshrc
+      
+      # set .czrc
+      curl -o {{ normal_user_home }}/.czrc $DOTS_REPO/terminals/.czrc
 
       # create alacritty folder and setup config if not exists
       if [ ! -d "{{ normal_user_home }}/.config/alacritty" ]; then
