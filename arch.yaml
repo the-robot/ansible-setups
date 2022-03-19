@@ -95,6 +95,10 @@
       
       # install docker-compose
       yay_if_not_exists "docker-compose" "docker-compose"
+      
+      # install cz (conventional git commit tool)
+      yay_if_not_exists "cz" "nodejs-commitizen"
+      yay -a -Sy --noconfirm --cleanafter "nodejs-cz-conventional-changelog"
 
       # install spotify
       yay_if_not_exists "spotify" "spotify"
