@@ -1,10 +1,8 @@
-# ansible setups
-
 <p align="center">
-  <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
+  <img src="https://raw.githubusercontent.com/the-robot/ansible-setups/master/ansiblesetups.png" width=404 />
 </p>
 
-[the-robot/dots](https://github.com/the-robot/dots) if you are looking for dot files.
+> Checkout [the-robot/dots](https://github.com/the-robot/dots) for dot files.
   
 # 1. Distro Setup
 
@@ -52,3 +50,11 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
+
+</br>
+
+---
+  
+<p align="center">
+  <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
+</p>
