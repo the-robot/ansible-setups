@@ -4,11 +4,11 @@
 
 > Checkout [the-robot/dots](https://github.com/the-robot/dots) for dot files.
   
-# 1. Distro Setup
+## 1. Distro Setup 🐧
 
 **NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
 
-## Arch Linux
+### Arch Linux 🔼
 
 Run the command below to automatically setup the arch linux with ansible playbook.
 
@@ -16,13 +16,15 @@ Run the command below to automatically setup the arch linux with ansible playboo
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
-## Kali Linux
+### Kali Linux 🐉
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-kali.sh | sudo bash -s -- $(whoami)
 ```
 
-## Alpine (no Ansible, for environment with no `/dev/shm`)
+### Alpine 🗌
+
+- without Ansible because there is no `/dev/shm`
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine-ash.sh | ash
@@ -30,9 +32,9 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 
 <br/>
 
-# 2. DE Setup
+## 2. DE Setup 🎨
 
-## XFCE
+### XFCE 🖍️
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-xfce.sh | bash -s -- $(whoami)
@@ -40,13 +42,13 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 
 <br/>
 
-# 3. Contribution
+## 3. Contribution 📝
 
 Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html) for formatting the bash script.
 
 <br/>
 
-# 4. Tools not installed by ansible
+## 4. Tools not installed by Ansible 🚫
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
