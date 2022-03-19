@@ -3,12 +3,12 @@
 </p>
 
 > Checkout [the-robot/dots](https://github.com/the-robot/dots) for dot files.
-  
+
 ## 1. Distro Setup 🐧
 
 **NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
 
-### arch linux
+### Arch Linux
 
 Run the command below to automatically setup the arch linux with ansible playbook.
 
@@ -16,13 +16,13 @@ Run the command below to automatically setup the arch linux with ansible playboo
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
-### kali linux
+### Kali Linux
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-kali.sh | sudo bash -s -- $(whoami)
 ```
 
-### alpine linux
+### Alpine Linux
 
 - without Ansible because there is no `/dev/shm`
 
@@ -53,9 +53,7 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 - JetBrain IDE (CLion, GoLand, Data Grip)
 - Lens (K8)
 
-</br>
-
----
+</br><br/>
   
 <p align="center">
   <img src="https://i.redd.it/yf4j8mde9n341.jpg" width=280 />
