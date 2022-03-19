@@ -51,7 +51,7 @@ Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html)
 ## 4. Tools not installed by Ansible 🚫
 
 - JetBrain IDE (CLion, GoLand, Data Grip)
-- Lens (K8)
+- Lens (K8s)
 
 </br><br/>
   
