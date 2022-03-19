@@ -8,7 +8,7 @@
 
 **NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
 
-### Arch Linux 🔼
+### arch linux
 
 Run the command below to automatically setup the arch linux with ansible playbook.
 
@@ -16,13 +16,13 @@ Run the command below to automatically setup the arch linux with ansible playboo
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-arch.sh | sudo bash -s -- $(whoami)
 ```
 
-### Kali Linux 🐉
+### kali linux
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-kali.sh | sudo bash -s -- $(whoami)
 ```
 
-### Alpine 🗌
+### alpine linux
 
 - without Ansible because there is no `/dev/shm`
 
@@ -34,7 +34,7 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 
 ## 2. DE Setup 🎨
 
-### XFCE 🖍️
+### XFCE
 
 ```sh
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-xfce.sh | bash -s -- $(whoami)
