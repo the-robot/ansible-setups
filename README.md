@@ -6,7 +6,7 @@
 
 ## 1. Distro Setup 🐧
 
-**NOTE:** this setup is made for myself so you will need to edit the ansible config for your own use.
+This setup is made for myself so you will need to edit the ansible config for your own use.
 
 ### Arch Linux
 
