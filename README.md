@@ -30,8 +30,6 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-alpine-ash.sh | ash
 ```
 
-<br/>
-
 ## 2. DE Setup 🎨
 
 ### XFCE
@@ -40,13 +38,9 @@ curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/s
 curl https://raw.githubusercontent.com/the-robot/ansible-setups/master/scripts/setup-xfce.sh | bash -s -- $(whoami)
 ```
 
-<br/>
-
 ## 3. Contribution 📝
 
 Follow [Google Style Guide](https://google.github.io/styleguide/shellguide.html) for formatting the bash script.
-
-<br/>
 
 ## 4. Tools not installed by Ansible 🚫
 
